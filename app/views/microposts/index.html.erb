@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All Microposts</h1>
+<%= link_to "New micropost", new_micropost_path %>
+
+<table id="user">
+  <thead>
+    <tr>
+      <th>User Id</th>
+      <th>Content</th>
+      <th colspan="3">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @microposts.each do |micropost| %>
+        <tr>
+          <%= render micropost %>
+        </tr>
+      <% end %>
+  </tbody> 
+</table>

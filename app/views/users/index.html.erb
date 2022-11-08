@@ -1,6 +1,6 @@
 <h1>All the users</h1>
-<%= link_to 'New Student', new_user_path %>
-<table>
+<%= link_to 'Add New User', new_user_path , class: 'new_student' %>  | <%= link_to 'Micro Posts', microposts_path , class: 'new_student' %> 
+<table id="user">
     <thead>
         <tr>
             <th>Name</th>
@@ -15,10 +15,6 @@
                 <td><%= user.email%></td>
                 <td><%= link_to 'View', user %></td>
                 <td><%= link_to 'Edit', edit_user_path(user) %></td>
-                <td>
-                    <%= link_to 'Delete', user, method: :delete, data: {
-                        confirm: 'Are you sure?' } %>
-                </td>
                 <td><%= button_to 'Delete', user, method: :delete %></td>
             </tr>
         <% end %>
