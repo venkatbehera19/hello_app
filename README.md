@@ -23,3 +23,23 @@ If the test suite passes, you'll be ready to run the app in a local server:
 S rails server
 ~~ SN NS
 For more information, see the [*Ruby on Rails Tutorial* book] (https://www.railstutorial.org/book).
+
+## Generate Static pages
+$ rails generate controller StaticPages home help
+
+## Delete Static pages
+$ rails destroy controller StaticPages home help
+
+## Generate model
+$ rails generate model User name:string email:string
+
+## Destroy model
+$ rails destroy model User 
+
+## DB migration
+$ rails db:migrate
+## DB Rollback
+$ rails db:rollback
+
+## DB rollback to version 0
+$ rails db:migrate VERSION=0
