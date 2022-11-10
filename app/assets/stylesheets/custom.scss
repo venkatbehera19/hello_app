@@ -82,3 +82,22 @@ footer {
         }
     }
 }
+
+.userBtnGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details{
+    background-color: rgba(94, 168, 190, 0.904);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 40px;
+    text-align: center;
+    p{
+        color: rgb(11, 13, 14);
+    }
+}

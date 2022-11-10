@@ -14,6 +14,12 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    <% end %>
       <%= yield %>
     <%= render 'layouts/footer' %>
     </div>

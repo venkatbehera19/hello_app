@@ -1,7 +1,10 @@
 <% provide(:title, "#{@user.name}") %>
 <h1>Student Details</h1>
-
-<p> <strong> Name  </strong> <%= @user.name %> </p>
-<p> <strong> Email  </strong> <%= @user.email %> </p>
-
-<%= link_to 'Back', users_path %> | <%= link_to 'Edit', edit_user_path(@user) %>
+<div class="details">
+<div class="userBtnGroup">
+    <%= button_to 'Back', users_path , method: :get, class: 'btn btn-sm btn-secondary' %> 
+    <%= button_to 'Edit', edit_user_path(@user) , method: :get ,class: 'btn btn-sm btn-secondary' %>
+</div>
+    <p> <strong> Name  </strong> <%= @user.name %> </p>
+    <p> <strong> Email  </strong> <%= @user.email %> </p>
+</div>

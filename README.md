@@ -43,3 +43,6 @@ $ rails db:rollback
 
 ## DB rollback to version 0
 $ rails db:migrate VERSION=0
+
+## Reset Database 
+$ rm -f development.sqlite3 the rails db:migrate

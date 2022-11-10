@@ -1,7 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>All Microposts</h1>
-<%= link_to "New micropost", new_micropost_path %>
+
+<%= button_to 'Add New micropost', new_micropost_path , method: :get, class: 'btn btn-lg btn-primary' %> 
 
 <table id="user">
   <thead>
