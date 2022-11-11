@@ -16,12 +16,13 @@ class UsersController < ApplicationController
     end
 
     def create 
-        # puts user_params
         @user = User.new(user_params)
-        if @user.save
-            redirect_to users_path
-        else
-            flash.alert = "Unable To Proceed"
+        respond_to do |format|
+            if @user.save
+                format.html { redirect_to @user, :flash => { :success => "User Created Successfully."} }
+            else
+                format.html { render :new, status: :unprocessable_entity }
+            end
         end
     end
     def update 

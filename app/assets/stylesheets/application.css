@@ -25,17 +25,6 @@ a {
     font-weight: bold;
 }
 
-/* a:link {
-    color: black;
-}
-
-a:hover {
-    color:purple;
-}
-a:visited {
-    color: clear;
-} */
-
 #user {
     font-family: 'Arial, Helvetica, sans-serif';
     border-collapse: collapse;
@@ -64,58 +53,3 @@ a:visited {
     padding: 20px;
     margin: 70px;
 }
-
-input[type=text], textarea{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-input[type=email]{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-input[type=number]{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-input[type=password]{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-
-input[type=submit] {
-    background-color: #04AA6D;
-    color: rgb(19, 17, 17);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
