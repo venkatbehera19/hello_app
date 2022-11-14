@@ -13,6 +13,8 @@ gem "bootsnap", require: false
 gem "jbuilder"
 gem "importmap-rails"
 gem "stimulus-rails"
+gem "jquery-rails"
+gem "bootstrap"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do

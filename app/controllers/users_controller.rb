@@ -19,6 +19,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         respond_to do |format|
             if @user.save
+                log_in @user
                 format.html { redirect_to @user, :flash => { :success => "User Created Successfully."} }
             else
                 format.html { render :new, status: :unprocessable_entity }
