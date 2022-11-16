@@ -1,26 +1,10 @@
-<% provide(:title, 'Users') %>
+<% provide(:title, 'All User') %>
 <h1>All the users</h1>
-<div class="userBtnGroup">
-    <%= button_to 'Add New User', new_user_path , method: :get, class: 'btn btn-lg btn-primary' %> 
-    <%= button_to 'Micro Posts', microposts_path , method: :get ,class: 'btn btn-lg btn-primary' %>
+
+<ul class="users">
+<%# without for each we can list multiple li %>
+    <%= render @users %>
+</ul>
+<div class="custom_pagination">
+    <%= will_paginate %>
 </div>
-<table id="user">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th colspan="3">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @users.each do |user| %>
-            <tr>
-                <td><%= user.name%></td>
-                <td><%= user.email%></td>
-                <td><%= link_to 'View', user %></td>
-                <td><%= link_to 'Edit', edit_user_path(user) %></td>
-                <td><%= button_to 'Delete', user, method: :delete, class: 'btn btn-sm btn-danger' %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>

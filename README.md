@@ -46,3 +46,12 @@ $ rails db:migrate VERSION=0
 
 ## Reset Database 
 $ rm -f development.sqlite3 the rails db:migrate
+
+## for pagination we need to add 2 gem
+$ -> 1. gem 'will_paginate', '3.1.8'.    2. gem 'bootstrap-will_paginate', '1.0.0'
+
+## add a column admin to the users table
+$ rails g migration add_admin_to_users admin:boolean
+
+## how to reset the DB
+$ rails db:migrate:reset

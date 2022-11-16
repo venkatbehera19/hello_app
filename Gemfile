@@ -7,6 +7,8 @@ gem "bootstrap-sass"
 gem "bcrypt", "3.1.13"
 gem "sprockets-rails"
 gem "puma", "~> 5.0"
+gem "will_paginate", "3.1.8"
+gem "bootstrap-will_paginate", "1.0.0"
 gem "sassc-rails"
 gem "turbo-rails"
 gem "bootsnap", require: false
@@ -15,6 +17,7 @@ gem "importmap-rails"
 gem "stimulus-rails"
 gem "jquery-rails"
 gem "bootstrap"
+gem 'faker'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
