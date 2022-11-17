@@ -55,3 +55,8 @@ $ rails g migration add_admin_to_users admin:boolean
 
 ## how to reset the DB
 $ rails db:migrate:reset
+
+## generate model of Post
+$ rails generate model Post content:text user:references
+## if we wants to retrive all post associated with user_id in reverse_order add below in migration
+- add_index :posts, [:user_id, :created_at] 

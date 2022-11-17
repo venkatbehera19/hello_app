@@ -3,7 +3,8 @@ class User < ApplicationRecord
 
     before_save { email.downcase! }
 
-    has_many :microposts
+    has_many :microposts ,dependent: :destroy
+    has_many :posts , dependent: :destroy
 
     validates :name, presence: true, length: {minimum:3, maximum:50}
 
@@ -18,7 +19,6 @@ class User < ApplicationRecord
     class << self 
         def digest(string)
             cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-    
             BCrypt::Password.create(string, cost: cost)
         end
         # returns a random token
@@ -40,5 +40,10 @@ class User < ApplicationRecord
     # forget a user
     def forget
         update_attribute(:remember_digest, nil)
+    end
+
+    def feed 
+        # Post.where("user_id = ?", id);
+        posts
     end
 end
