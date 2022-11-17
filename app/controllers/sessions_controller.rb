@@ -9,11 +9,17 @@ class SessionsController < ApplicationController
     user = User.find_by(email: email.downcase)
     respond_to do |format|
       if user&.authenticate(password)
-        log_in user
-        # remember user
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user);
-        # redirect_back_or user
-        format.html { redirect_back_or user }
+        if user.activated?
+          log_in user
+          # remember user
+          params[:session][:remember_me] == '1' ? remember(user) : forget(user);
+          # redirect_back_or user
+          format.html { redirect_back_or user }
+        else
+          message = "Account not activated"
+          message += "check your email for the activation link."
+          format.html { redirect_to root_url, :flash => { :warning => message } }
+        end
       else
         # puts "Not Available"
         format.html { redirect_to login_path, :flash => { :danger => "Invalid email/password combination"}}

@@ -63,3 +63,9 @@ $ rails generate model Post content:text user:references
 
 ## photo upload
 $ rails active_storage:install
+
+## add migration
+$ rails g migration add_activation_to_users activation_digest:string activated:boolean activated_at:datetime
+
+## Mailer template 
+$ rails g mailer UserMailer account_activation password_reset

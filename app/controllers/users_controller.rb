@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     before_action :admin_user,     only: :destroy
     def index
         # @users = User.all
-        @users = User.paginate(page: params[:page], per_page: 5)
+        @users = User.where(activated: true).paginate(page: params[:page], per_page: 5)
     end
 
     def show 
@@ -25,8 +25,9 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         respond_to do |format|
             if @user.save
-                log_in @user
-                format.html { redirect_to @user, :flash => { :success => "User Created Successfully."} }
+                # log_in @user
+                @user.send_activation_email  # UserMailer.account_activation(@user).deliver_now
+                format.html { redirect_to root_url, :flash => { :info => "please check your email to activate your account."} }
             else
                 format.html { render :new, status: :unprocessable_entity }
             end
