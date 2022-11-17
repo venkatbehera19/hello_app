@@ -60,3 +60,6 @@ $ rails db:migrate:reset
 $ rails generate model Post content:text user:references
 ## if we wants to retrive all post associated with user_id in reverse_order add below in migration
 - add_index :posts, [:user_id, :created_at] 
+
+## photo upload
+$ rails active_storage:install

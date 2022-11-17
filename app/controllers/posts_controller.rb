@@ -1,28 +1,30 @@
 class PostsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destory]
-    before_action :correct_user,   only: [:destory]
+    before_action :logged_in_user, only: [:create, :destroy]
+    before_action :correct_user,   only: :destroy
 
     def create
         @post = current_user.posts.build(post_params)
-        if @post.save
-            flash[:success] = "Post Created"
-            redirect_to root_url
-        else
-            @feed_items = current_user.feed.paginate(page: params[:page])
-            render 'static_pages/home'
+        @post.image.attach(params[:post][:image])
+        respond_to do |format|
+            if @post.save
+                format.html { redirect_to root_url, :flash => { :success => "Post Created"} }
+            else
+                @feed_items = current_user.feed.paginate(page: params[:page])
+                format.html { render 'static_pages/home', status: :unprocessable_entity }
+                # render 'static_pages/home'
+            end
         end
     end
 
-    def destory
-        puts "#{@post}"
-        # @post.destory
-        # flash[:danger] = "Post deleted."
-        # redirect_to request.referrer || root_url 
+    def destroy
+        @post.destroy
+        flash[:danger] = "Post deleted."
+        redirect_to request.referrer || root_url 
     end
 
     private
         def post_params 
-            params.require(:post).permit(:content)
+            params.require(:post).permit(:content, :image)
         end
 
         def logged_in_user

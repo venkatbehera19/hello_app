@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
   resources :microposts
   resources :users
-  resources :posts , only: [:destory, :create]
+  resources :posts , only: [:destroy, :create]
   root "static_pages#home"
 end
