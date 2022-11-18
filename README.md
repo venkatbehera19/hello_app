@@ -69,3 +69,6 @@ $ rails g migration add_activation_to_users activation_digest:string activated:b
 
 ## Mailer template 
 $ rails g mailer UserMailer account_activation password_reset
+
+## rails routings 
+https://guides.rubyonrails.org/routing.html (include/extend in rails)
