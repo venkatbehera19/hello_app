@@ -72,3 +72,9 @@ $ rails g mailer UserMailer account_activation password_reset
 
 ## rails routings 
 https://guides.rubyonrails.org/routing.html (include/extend in rails)
+
+## adding controller without test file
+$ rails g controller PasswordResets new edit --no-test-framework
+
+## added reset migration 
+$ rails g migration add_reset_to_users reset_digest:string reset_sent_at:datetime
