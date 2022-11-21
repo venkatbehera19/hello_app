@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/help'
   get 'static_pages/contact'
-  resources :microposts
-  resources :users
+  resources :users do
+    member do 
+      get :following, :followers
+    end
+  end
   resources :account_activations , only: [:edit]
   resources :password_resets  ,    only: [:new , :create, :edit, :update]
   resources :posts ,               only: [:destroy, :create]
+  resources :relationships,        only: [:create, :destroy]
   root "static_pages#home"
 end

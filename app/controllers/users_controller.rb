@@ -53,31 +53,46 @@ class UsersController < ApplicationController
         flash[:success] = "User Deleted"
         redirect_to users_path
     end
+
+    def following
+        @title = "Following"
+        @user = User.find(params[:id])
+        @users = @user.following.paginate(page: params[:page], per_page: 20)
+        # format.html { render :edit, status: :unprocessable_entity }
+        render 'show_follow'
+    end
+
+    def followers
+        @title = "Followers"
+        @user = User.find(params[:id])
+        @users = @user.followers.paginate(page: params[:page], per_page: 20)
+        render 'show_follow'
+    end
     
     private
 
-    # strong parameters
-    def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-
-    # confirm a loggedin user
-    def logged_in_user
-        unless logged_in?
-            store_location
-            flash[:danger] = "Please log in."
-            redirect_to login_url
+        # strong parameters
+        def user_params
+            params.require(:user).permit(:name, :email, :password, :password_confirmation)
         end
-    end
 
-    # confirms the correct user
-    def correct_user 
-        @user = User.find(params[:id])
-        redirect_to root_url unless current_user?(@user)
-    end
+        # confirm a loggedin user
+        def logged_in_user
+            unless logged_in?
+                store_location
+                flash[:danger] = "Please log in."
+                redirect_to login_url
+            end
+        end
 
-    # confirms an admin user
-    def admin_user
-        redirect_to root_url unless current_user.admin?
-    end
+        # confirms the correct user
+        def correct_user 
+            @user = User.find(params[:id])
+            redirect_to root_url unless current_user?(@user)
+        end
+
+        # confirms an admin user
+        def admin_user
+            redirect_to root_url unless current_user.admin?
+        end
 end

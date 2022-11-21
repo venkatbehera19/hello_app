@@ -78,3 +78,6 @@ $ rails g controller PasswordResets new edit --no-test-framework
 
 ## added reset migration 
 $ rails g migration add_reset_to_users reset_digest:string reset_sent_at:datetime
+
+## creating relationship and migration for followed and follower
+$ rails g model Relationship follower_id:integer followed_id:integer
